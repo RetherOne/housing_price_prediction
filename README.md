@@ -81,14 +81,18 @@ docker run --rm -p 80:80 -e MODEL_PATH="data/model.joblib" prod-backend
 After that, you can go to `http://127.0.0.1/docs` in your browser, and Swagger will open with the available endpoints(without port `:8000`).
 
 
-# Description of endpoints
+# Description of endpoints `app/api/endpoints.py`
 
 It's all pretty simple and clear from the name.
+---
 ```
-`/predict`
+/predict
 ```
 - This endpoint requires a JSON web token and is used to return the result of the predict function from the `predict.py` file.
+---
+
 ```
-`/get_token`
+/get_token
 ```
 - This endpoint serves to ensure that before receiving a prediction, the user receives a token with which they can access the `/predict` endpoint.
+---
