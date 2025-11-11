@@ -29,7 +29,7 @@ app/
 ├── schemas/
 │   └── param.py             # Pydantic request schemas
 ├── utils/
-│   └──predict.py            # Prediction logic functions
+│   └──predict.py            # Prediction logic functions. This file is a copy of main.py from the .zip archive
 ├── tests/
 │   ├── __init__.py          # Makes `tests` a Python package
 │   ├── E2E_test.py          # End-to-end tests
