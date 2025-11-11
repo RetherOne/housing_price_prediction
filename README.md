@@ -49,16 +49,13 @@ README.md
 
 ## Create venv
 ```bash
-python3.12 -m venv venv
+python -3.12 -m venv .venv
 
 # Activate venv
 # Linux/macOS
-source venv/bin/activate
+source .venv/bin/activate
 # Windows
-venv\Scripts\activate
-
-# Upgrade pip and install dependencies
-pip install --upgrade pip
+.venv\Scripts\activate
 ```
 
 ## Running FastAPI Application
@@ -67,6 +64,7 @@ pip install -r requirements.txt
 cd app
 fastapi dev main.py
 ```
+After that, you can go to `http://127.0.0.1:8000/docs` in your browser, and Swagger will open with the available endpoints.
 
 ## Running Tests with Pytest
 ```bash
@@ -80,3 +78,14 @@ pytest -v
 docker build -t prod-backend .
 docker run --rm -p 80:80 -e MODEL_PATH="data/model.joblib" prod-backend
 ```
+After that, you can go to `http://127.0.0.1/docs` in your browser, and Swagger will open with the available endpoints(without port `:8000`).
+
+
+# Description of endpoints
+
+It's all pretty simple and clear from the name.
+```
+`/predict`       # This endpoint requires a JSON web token and is used to return the result of the predict function from the `predict.py` file.
+
+`/get_token`     # This endpoint serves to ensure that before receiving a prediction, the user receives a token with which they can access the `/predict` endpoint.
+````

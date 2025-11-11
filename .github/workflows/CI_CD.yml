@@ -6,11 +6,12 @@ on:
     paths:
       - 'app/**'
       - 'requirements.txt'
+      - 'Dockerfile'
   pull_request:
     branches: [main]
     paths:
       - 'app/**'
-      - 'requirements.txt'
+      - 'Dockerfile'
 
 jobs:
   # --- JOB 1: Run tests ---
