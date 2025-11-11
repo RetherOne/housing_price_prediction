@@ -85,7 +85,10 @@ After that, you can go to `http://127.0.0.1/docs` in your browser, and Swagger w
 
 It's all pretty simple and clear from the name.
 ```
-`/predict`       # This endpoint requires a JSON web token and is used to return the result of the predict function from the `predict.py` file.
-
-`/get_token`     # This endpoint serves to ensure that before receiving a prediction, the user receives a token with which they can access the `/predict` endpoint.
-````
+`/predict`
+```
+### This endpoint requires a JSON web token and is used to return the result of the predict function from the `predict.py` file.
+```
+`/get_token`
+```
+### This endpoint serves to ensure that before receiving a prediction, the user receives a token with which they can access the `/predict` endpoint.
