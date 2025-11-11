@@ -49,7 +49,7 @@ README.md
 
 ## Create venv
 ```bash
-python -3.12 -m venv .venv
+py -3.12 -m venv .venv
 
 # Activate venv
 # Linux/macOS
@@ -94,4 +94,4 @@ It's all pretty simple and clear from the name.
 ```
 /get_token
 ```
-- This endpoint serves to ensure that before receiving a prediction, the user receives a token with which they can access the `/predict` endpoint.
+- Since the endpoint `/predict` requires a token from us, `/get_token` was created to obtain it.
