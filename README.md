@@ -10,7 +10,7 @@ I completed the task in full, with no problems. I implemented REST API together 
 I would also like to note that I structured the entire project based on articles from the internet about how to properly create FastAPI applications. I hope it turned out to be intuitive and that there will be no problems with it.
 
 # Description of the structure
-
+```
 .github/workflows/
 ├── CI_CD.yml                # GitHub Actions workflow for running CI/CD
 │
@@ -39,5 +39,5 @@ Dockerfile
 .dockerignore
 requirements.txt
 README.md
-
+```
 # Running and other stuff

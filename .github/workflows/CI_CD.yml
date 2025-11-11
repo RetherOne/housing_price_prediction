@@ -3,8 +3,14 @@ name: CI/CD Pipeline
 on:
   push:
     branches: [main]
+    paths:
+      - 'app/**'
+      - 'requirements.txt'
   pull_request:
     branches: [main]
+    paths:
+      - 'app/**'
+      - 'requirements.txt'
 
 jobs:
   # --- JOB 1: Run tests ---
