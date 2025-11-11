@@ -1,6 +1,6 @@
 # Disclaimer
 
-Although in response to my question about the Python version, you recommended that I leave the project on version 3.9, I still decided to rework the application to version 3.12. This required retraining the model, but since all the functions were already ready, it was easy, and as I said, the prediction results differ from those before retraining, but not much. 
+Although in answer to my email about the Python version, you recommended that I leave the project on version 3.9, I still decided to rework the application to version 3.12. This required retraining the model, but since all the functions were already ready, it was easy, and as I said, the prediction results differ from those before retraining, but not much. 
 Also, with the transition to version 3.12, I replaced the library versions with the latest available ones.
 
 
@@ -31,9 +31,10 @@ app/
 ├── utils/
 │   └──predict.py            # Prediction logic functions
 ├── tests/
+│   ├── __init__.py          # Makes `tests` a Python package
 │   ├── E2E_test.py          # End-to-end tests
 │   └── integration_test.py  # Integration tests
-├── __init__.py              # Makes `main` a Python package
+├── __init__.py              # Makes `app` a Python package
 └── main.py                  # Entry point of the FastAPI application
 .env
 .gitignore
@@ -46,14 +47,30 @@ README.md
 
 # Running and other stuff
 
+## Create venv
+```bash
+python3.12 -m venv venv
+
+# Activate venv
+# Linux/macOS
+source venv/bin/activate
+# Windows
+venv\Scripts\activate
+
+# Upgrade pip and install dependencies
+pip install --upgrade pip
+```
+
 ## Running FastAPI Application
 ```bash
+pip install -r requirements.txt
 cd app
 fastapi dev main.py
 ```
 
 ## Running Tests with Pytest
 ```bash
+pip install -r requirements.txt
 cd app
 pytest -v
 ```
@@ -61,5 +78,5 @@ pytest -v
 ## Building and Running Docker Container
 ```bash
 docker build -t prod-backend .
-docker run -p 8000:8000 -e MODEL_PATH="data/model.joblib" prod-backend
+docker run --rm -p 80:80 -e MODEL_PATH="data/model.joblib" prod-backend
 ```
