@@ -41,15 +41,19 @@ limiter = Limiter(key_func=token_or_ip_key)
 
 @router.post("/predict", dependencies=[Depends(JWTBearer())])
 @limiter.limit("5/minute")
-def fortune_teller(request: Request, params: Parameters):
-    data_dict = params.model_dump()
+def fortune_teller(request: Request, params: Parameters | list[Parameters]):
+    if isinstance(params, Parameters):
+        items = [params]
+    else:
+        items = params
 
-    df = pd.DataFrame([data_dict])
+    data = [item.model_dump() for item in items]
+    df = pd.DataFrame(data)
 
     df = pd.get_dummies(df).reindex(columns=ALL_FEATURE, fill_value=0)
 
     y_pred = predict(df, model)
-    return {"prediction": f"{y_pred}"}
+    return {"prediction": y_pred.tolist()}
 
 
 @router.get("/get_token")
