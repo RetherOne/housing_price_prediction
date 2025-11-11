@@ -1,16 +1,14 @@
-import logging
-import sys
+# import logging
+# import sys
+# logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
+# TRAIN_DATA = "housing.csv"
+# MODEL_NAME = "model.joblib"
 
 import joblib
 import pandas as pd
 from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_absolute_error
 from sklearn.model_selection import train_test_split
 
-logging.basicConfig(stream=sys.stdout, level=logging.DEBUG)
-
-TRAIN_DATA = "housing.csv"
-MODEL_NAME = "model.joblib"
 RANDOM_STATE = 100
 
 
@@ -56,6 +54,7 @@ def load_model(filename):
     return model
 
 
+"""
 if __name__ == "__main__":
     logging.info("Preparing the data...")
     X_train, X_test, y_train, y_test = prepare_data(TRAIN_DATA)
@@ -86,3 +85,4 @@ if __name__ == "__main__":
     logging.info(y_pred_test[:5])
     logging.info(f"Train error: {train_error}")
     logging.info(f"Test error: {test_error}")
+"""
